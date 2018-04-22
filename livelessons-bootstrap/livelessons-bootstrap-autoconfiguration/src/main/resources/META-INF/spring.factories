@@ -1,2 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-demo.LogTomcatVersionAutoConfiguration
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=demo.LogTomcatVersionAutoConfiguration
