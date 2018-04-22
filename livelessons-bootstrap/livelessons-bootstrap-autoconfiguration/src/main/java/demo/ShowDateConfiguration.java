@@ -23,7 +23,7 @@ public class ShowDateConfiguration {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		System.out.println(dateFormat.format(date));
-		logger.info("\n\n\nCurrent time: "
+		logger.info("\n\n\nCurrent local time : "
 				+ dateFormat.format(date) + "\n\n");
 	}
 }
