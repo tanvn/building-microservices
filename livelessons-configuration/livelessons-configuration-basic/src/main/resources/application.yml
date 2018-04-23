@@ -1,4 +1,7 @@
 configuration:
   projectName : Spring Boot
+  author: Tan Vu
+test:
+  version: 1.0a
 
 

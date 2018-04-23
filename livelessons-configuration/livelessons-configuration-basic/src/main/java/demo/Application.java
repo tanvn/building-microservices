@@ -26,8 +26,7 @@ public class Application {
 
 	@Autowired
 	void setConfigurationProjectProperties(ConfigurationProjectProperties cp) {
-		System.out.println(
-				"configurationProjectProperties.projectName = " + cp.getProjectName());
+		System.out.println(cp);
 	}
 
 	public static void main(String[] args) {
