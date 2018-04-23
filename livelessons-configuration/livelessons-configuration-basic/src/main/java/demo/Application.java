@@ -27,6 +27,9 @@ public class Application {
 	@Autowired
 	void setConfigurationProjectProperties(ConfigurationProjectProperties cp) {
 		System.out.println(cp);
+		if(cp.getIsTest()) {
+			System.out.println("Ok, test version !");
+		}
 	}
 
 	public static void main(String[] args) {

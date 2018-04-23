@@ -9,6 +9,15 @@ public class ConfigurationProjectProperties {
 
 	private String projectName;
 	private String author;
+	private Boolean isTest;
+
+	public Boolean getIsTest() {
+		return isTest;
+	}
+
+	public void setIsTest(Boolean isTest) {
+		this.isTest = isTest;
+	}
 
 	public String getProjectName() {
 		return projectName;
@@ -28,7 +37,8 @@ public class ConfigurationProjectProperties {
 
 	@Override
 	public String toString() {
-		return "ConfigurationProjectProperties [projectName=" + projectName + ", author=" + author + "]";
+		return "ConfigurationProjectProperties [projectName=" + projectName + ", author=" + author + ", isTest="
+				+ isTest + "]";
 	}
 
 }

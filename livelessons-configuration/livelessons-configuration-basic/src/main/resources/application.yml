@@ -1,6 +1,7 @@
 configuration:
   projectName : Spring Boot
   author: Tan Vu
+  isTest: true
 test:
   version: 1.0a
 
