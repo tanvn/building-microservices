@@ -55,6 +55,9 @@ public class Demo implements CommandLineRunner {
 		logger.info("----> 1 " + this.service.execute("boot"));
 		logger.info("----> 2 " + this.service.execute("boot"));
 		logger.info("----> 3 " + this.service.execute("boot"));
+		logger.info("----> 4 " + this.service.executeNoParams());
+		logger.info("----> 5 " + this.service.executeNoParams());
+		logger.info("----> 6 " + this.service.executeNoParams());
 	}
 
 }

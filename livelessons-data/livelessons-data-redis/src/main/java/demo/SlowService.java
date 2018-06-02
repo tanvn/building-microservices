@@ -17,5 +17,15 @@ public class SlowService {
 		}
 		return UUID.randomUUID().toString();
 	}
+	
+	@Cacheable("noParam")
+	public String executeNoParams() {
+		try {
+			Thread.sleep(2000);
+		}
+		catch (InterruptedException ex) {
+		}
+		return UUID.randomUUID().toString();
+	}
 
 }

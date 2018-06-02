@@ -11,10 +11,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 @EnableCaching
 public class DataRedisApplication {
 
-	@Bean
-	RedisCacheManager cacheManager(StringRedisTemplate template) {
-		return new RedisCacheManager(template);
-	}
+//	@Bean
+//	RedisCacheManager cacheManager(StringRedisTemplate template) {
+//		return new RedisCacheManager(template);
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(DataRedisApplication.class, args);
