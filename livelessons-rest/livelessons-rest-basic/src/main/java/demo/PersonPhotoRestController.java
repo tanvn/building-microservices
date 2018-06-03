@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URI;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,8 +42,9 @@ public class PersonPhotoRestController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Resource> read(@PathVariable Long id) throws Exception {
-		Person person = this.personRepository.findOne(id);
-		File file = fileFor(person);
+		Optional<Person> person = this.personRepository.findById(id);
+		
+		File file = fileFor(person.get());
 		if (!file.exists()) {
 			throw new FileNotFoundException(file.getAbsolutePath());
 		}
@@ -55,8 +57,8 @@ public class PersonPhotoRestController {
 	@RequestMapping(method = { RequestMethod.POST, RequestMethod.PUT })
 	public ResponseEntity<?> write(@PathVariable Long id,
 			@RequestParam MultipartFile file) throws Exception {
-		Person person = this.personRepository.findOne(id);
-		FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(fileFor(person)));
+		Optional<Person> person = this.personRepository.findById(id);
+		FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(fileFor(person.get())));
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().buildAndExpand(id)
 				.toUri();
 		return ResponseEntity.created(location).build();
