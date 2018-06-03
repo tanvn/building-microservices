@@ -61,11 +61,13 @@ public class PersonPhotoRestController {
 		FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(fileFor(person.get())));
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().buildAndExpand(id)
 				.toUri();
+		System.out.println(location.toString());;
 		return ResponseEntity.created(location).build();
 	}
 
 	private File fileFor(Person person) {
-		return new File(this.root, Long.toString(person.getId()));
+		String imageFile = Long.toString(person.getId()) + ".jpg";
+		return new File(this.root, imageFile);
 	}
 
 }

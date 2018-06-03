@@ -16,6 +16,7 @@ public class PersonResourceProcessor implements ResourceProcessor<Resource<Perso
 		UriComponents uriComponents = ServletUriComponentsBuilder.fromCurrentContextPath()
 				.path("/people/{id}/photo").buildAndExpand(id);
 		String uri = uriComponents.toUriString();
+		resource.add(new Link("https://www.facebook.com/" + resource.getContent().getId(), "facebook"));
 		resource.add(new Link(uri, "photo"));
 		return resource;
 	}
