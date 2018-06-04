@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URI;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
@@ -65,15 +66,16 @@ public class PersonPhotoRestController {
 	}
 
 	private Person findOne(Long id) {
-		Person person = this.personRepository.findOne(id);
-		if (person == null) {
+		Optional<Person> person = this.personRepository.findById(id);
+		if (!person.isPresent() ) {
+			System.out.println("person does not exist !");
 			throw new PersonNotFoundException(id);
 		}
-		return person;
+		return person.get();
 	}
 
 	private File fileFor(Person person) {
-		return new File(this.root, Long.toString(person.getId()));
+		return new File(this.root, Long.toString(person.getId() ) + ".jpg");
 	}
 
 }
